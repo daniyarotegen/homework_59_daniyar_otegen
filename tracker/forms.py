@@ -44,3 +44,6 @@ class IssueForm(forms.ModelForm):
     status = forms.ModelChoiceField(queryset=Status.objects.all())
     type = forms.ModelMultipleChoiceField(queryset=Type.objects.all())
 
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=20, required=False, label='Search')

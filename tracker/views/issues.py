@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DeleteView
 from tracker.forms import IssueForm
 from tracker.models import Issue
 
@@ -57,14 +58,7 @@ class UpdateView(TemplateView):
         return render(request, 'issue_update.html', context={'form': form, 'issue': issue})
 
 
-class DeleteView(View):
-
-    def get(self, request, *args, **kwargs):
-        issue = get_object_or_404(Issue, pk=kwargs['pk'])
-        context = {'issue': issue}
-        return render(request, 'issue_delete.html', context)
-
-    def post(self, request, *args, **kwargs):
-        issue = get_object_or_404(Issue, pk=kwargs['pk'])
-        issue.delete()
-        return redirect('index')
+class IssueDeleteView(DeleteView):
+    template_name = 'issue_delete.html'
+    model = Issue
+    success_url = reverse_lazy('index')

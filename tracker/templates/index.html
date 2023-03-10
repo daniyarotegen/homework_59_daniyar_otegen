@@ -1,0 +1,16 @@
+{% extends 'partial/base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<h1 style="margin: 1rem">Issue Tracker</h1>
+{% for issue in issues %}
+<div class="card" style="margin-bottom: 1rem">
+  <div class="card-body">
+    <a href="{% url 'issue_detail' issue.pk %}">{{ issue.summary }}</a> - {{ issue.status }}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

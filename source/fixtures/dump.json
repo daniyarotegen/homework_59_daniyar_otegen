@@ -782,6 +782,16 @@
   }
 },
 {
+  "model": "tracker.project",
+  "pk": 7,
+  "fields": {
+    "name": "New Project",
+    "description": "",
+    "start_date": "2023-03-11",
+    "end_date": "2023-03-12"
+  }
+},
+{
   "model": "tracker.status",
   "pk": 1,
   "fields": {

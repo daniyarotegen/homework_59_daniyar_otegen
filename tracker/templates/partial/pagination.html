@@ -1,8 +1,7 @@
-<ul class="pagination justify-content-center" style="margin-left: 30rem">
+<ul class="pagination justify-content-center" style="margin-left: 18rem">
     {% if page_obj.has_previous %}
     <li class="page-item">
-        <a class="page-link" href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo;
-            Back</a>
+        <a class="page-link" href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo;</a>
     </li>
     {% else %}
     <li class="page-item disabled">

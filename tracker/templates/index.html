@@ -12,11 +12,7 @@ Home
 <h1 style="margin: 1rem">Issue Tracker</h1>
 
 {% for issue in issues %}
-<div class="card" style="margin-bottom: 1rem">
-    <div class="card-body">
-        <a href="{% url 'issue_detail' issue.pk %}">{{ issue.summary }}</a> - {{ issue.status }}
-    </div>
-</div>
+    {% include 'partial/issue_list.html' %}
 {% empty %}
 <h1>Tasks are not found!</h1>
 {% endfor %}

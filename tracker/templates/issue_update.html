@@ -7,7 +7,7 @@ Issue Update
 <h1 style="margin: 1rem">Issue Update</h1>
 <div class="form">
     <form action="{% url 'issue_update' issue.pk %}" method="post">
-        {% include 'partial/issue_form.html' with button_text='Update' %}
+        {% include 'partial/form.html' with button_text='Update' %}
     </form>
 </div>
 {% endblock %}

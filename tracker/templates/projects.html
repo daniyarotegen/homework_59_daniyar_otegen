@@ -1,17 +1,15 @@
 {% extends 'partial/base.html' %}
 {% block title %}
-Home
+Projects
 {% endblock %}
 {% block menu %}
-
 {% endblock %}
 {% block content %}
 <h1 style="margin: 1rem">Projects</h1>
-
 {% for project in projects %}
 <div class="card" style="margin-bottom: 1rem">
     <div class="card-body">
-        {{ project.name }}
+        <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a>
     </div>
 </div>
 {% empty %}

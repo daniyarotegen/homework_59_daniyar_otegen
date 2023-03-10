@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import BaseValidator
-from .models import Issue, Type, Status
+from .models import Issue, Type, Status, Project
 
 
 class CustomMaxValidator(BaseValidator):
@@ -33,14 +33,16 @@ class IssueForm(forms.ModelForm):
 
     class Meta:
         model = Issue
-        fields = ['summary', 'description', 'status', 'type']
+        fields = ['summary', 'description', 'project', 'status', 'type']
         labels = {
             'summary': 'Summary',
             'description': 'Description',
+            'project': 'Project',
             'status': 'Status',
             'type': 'Type'
         }
 
+    project = forms.ModelChoiceField(queryset=Project.objects.all())
     status = forms.ModelChoiceField(queryset=Status.objects.all())
     type = forms.ModelMultipleChoiceField(queryset=Type.objects.all())
 

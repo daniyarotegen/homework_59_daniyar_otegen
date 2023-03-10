@@ -15,6 +15,13 @@ class Issue(models.Model):
         blank=True,
         verbose_name='Description'
     )
+    project = models.ForeignKey(
+        to='tracker.Project',
+        related_name='issues',
+        null=False,
+        blank=False,
+        on_delete=models.RESTRICT
+    )
     status = models.ForeignKey(
         to='tracker.Status',
         related_name='issues',
